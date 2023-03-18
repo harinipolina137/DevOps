@@ -12,7 +12,9 @@ pipeline{
                 sh '''
                 env
                 '''
-                 env["$repoName"]
+                 def test = env["$repoName"]
+                 echo $test
+                 
                 checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'Mykey', url: 'https://github.com/harinipolina137/${env.repoName}']])
 
             
